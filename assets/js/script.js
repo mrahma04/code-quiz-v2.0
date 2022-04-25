@@ -93,6 +93,7 @@ const checkAnswer = (event) => {
     if (event.target.dataset.iscorrect === 'false') {
         answerSection.style.display = 'block'
         answer.innerText = 'Wrong!'
+        time -= 50
         answerSection.appendChild(answer)
         // wrongAnswer.style.display = 'block'
     }
