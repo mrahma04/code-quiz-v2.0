@@ -1,24 +1,23 @@
 const questions = [
     {
         question: 'Commonly used data types DO Not Include:',
-        choices: ['strings', 'booleans', 'alerts', 'numbers']
+        choices: [{ answer: 'strings', isCorrect: false }, { answer: 'alerts', isCorrect: true }, { answer: 'booleans', isCorrect: false }, { answer: 'numbers', isCorrect: false }]
     },
     {
         question: 'The condition in an if / else statement is enclosed with __________.',
-        choices: ['quotes', 'curly brackets', 'parenthesis', 'square brackets']
-
+        choices: [{ answer: 'quotes', isCorrect: false }, { answer: 'curly brackets', isCorrect: false }, { answer: 'parenthesis', isCorrect: true }, { answer: 'square brackets', isCorrect: false }]
     },
     {
         question: 'Arrays in JavaScript can be used to store __________.',
-        choices: ['numbers and strings', 'other arrays', 'booleans', 'all of the above']
+        choices: [{ answer: 'numbers and strings', isCorrect: false }, { answer: 'other arrays', isCorrect: false }, { answer: 'booleans', isCorrect: false }, { answer: 'all of the above', isCorrect: true }]
     },
     {
         question: 'String values must be enclosed within __________ while being assigned to variables.',
-        choices: ['commas', 'curly brackets', 'quotes', 'parenthesis']
+        choices: [{ answer: 'commas', isCorrect: false }, { answer: 'curly brackets', isCorrect: false }, { answer: 'quotes', isCorrect: true }, { answer: '  parenthesis', isCorrect: false }]
     },
     {
         question: 'A very useful tool used during development and debugging for printing content to the debugger is:',
-        choices: ['JavaScript', 'terminal/bash', 'for loops', 'console.log']
+        choices: [{ answer: 'JavaScript', isCorrect: false }, { answer: 'terminal/bash', isCorrect: false }, { answer: 'for loops', isCorrect: true }, { answer: '  console.log', isCorrect: true }]
     }
 ]
 
@@ -38,6 +37,7 @@ const startBtnHandler = (event) => {
 }
 
 const renderQuestions = () => {
+ 
     const currentQuestion = questions[globalIndex]
     question.textContent = currentQuestion.question
 
@@ -49,7 +49,10 @@ const renderQuestions = () => {
         const choice = document.createElement('button')
         choice.setAttribute('class', 'list-group-item list-group-item-action choice')
 
-        choice.innerText = currentQuestion.choices[i]
+        // set the choice text and data-isCorrect attribute
+        choice.innerText = currentQuestion.choices[i].answer
+        choice.setAttribute('data-isCorrect', `${currentQuestion.choices[i].isCorrect}`)
+
         choicesList.appendChild(choice)
     }
     answerSection.appendChild(choicesList)
@@ -58,16 +61,54 @@ const renderQuestions = () => {
     // querySelectorAll will return an array that needs to be looped over for 'click' event
     const selectedChoice = document.querySelectorAll('.choice')
     for (choice of selectedChoice) {
-        choice.addEventListener('click', nextQuestion)
+        // 'click' event must be tracked as an event in the callback nextQuestion
+        choice.addEventListener('click', checkAnswer)
     }
 }
 
-const nextQuestion = () => {
+const checkAnswer = (event) => {
+    const answerSection = document.querySelector('#check-answer-section')
+    // const correctAnswer = document.querySelector('#correct')
+    // const wrongAnswer = document.querySelector('#wrong')
+    const answer = document.createElement('h4')
+    answer.setAttribute('class', 'fw-light fst-italic clear-answer')
+    // answer.setAttribute('id', 'check-answer')
+
+    if (event.target.dataset.iscorrect === 'true') {
+        answerSection.style.display = 'block'
+        answer.innerText = 'Correct!'
+        answerSection.appendChild(answer)
+        // correctAnswer.style.display = 'block'
+    }
+    if (event.target.dataset.iscorrect === 'false') {
+        answerSection.style.display = 'block'
+        answer.innerText = 'Wrong!'
+        answerSection.appendChild(answer)
+        // wrongAnswer.style.display = 'block'
+    }
+    nextQuestion()
+}
+
+const nextQuestion = (event) => {
     document.querySelector('#choices').remove()
     if (globalIndex < questions.length) {
         renderQuestions()
+        clearAnswer()
     } else {
+        clearAnswer()
         endQuiz()
+    }
+}
+
+const clearAnswer = (event) => {
+    const previousAnswer = document.querySelectorAll('.clear-answer')
+    // console.log(previousAnswer)
+    // console.log(typeof previousAnswer)
+    // console.log(previousAnswer.length)
+    if (previousAnswer.length >= 2) {
+        console.log('on the second question')
+        console.log(previousAnswer[0])
+        previousAnswer[0].remove()
     }
 }
 
@@ -78,7 +119,7 @@ const endQuiz = () => {
     finalScore.textContent = `Your final score is 100.`
 
     document.querySelector('#initials-form').style.display = 'block'
-    
+
     answerSection.appendChild(finalScore)
 
     document.querySelector('#get-initials-form').addEventListener('submit', (event) => {
