@@ -33,10 +33,11 @@ const countdownTimer = () => {
     time--
 }
 
-setInterval(countdownTimer, 1000)
+
 
 const startBtnHandler = (event) => {
     event.preventDefault()
+    setInterval(countdownTimer, 1000)
     console.log('start quiz button clicked')
 
     // remove start-text and start button after clicking start quiz button
