@@ -19,49 +19,49 @@
         <div class="row flex-column">
             <!-- header column -->
             <div class="col d-flex" style="justify-content: space-between;">
-                <a href="" class="link-dark" style="text-decoration: none;"">View high scores</a>
-                <p>Time: 22</p>
+                <a href="" class="link-dark" style="text-decoration: none;">View high scores</a>
+                <p>Time: <span id="counter"></p>
             </div>
             <!-- main column with question card -->
             <div class=" col">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            <h5 class="card-title" id="question">Coding Quiz Challenge</h4>
-                        </div>
-                        <div class="card-body" id="answer-section">
-                            <p id="start-text">Try to answer the following code-related questions within the time limit.
-                                <br>
-                                Keep in mind that incorrect answers will penalize your score/time
-                                <br>
-                                by 10 seconds!
-                            </p>
-                            <a href="" class="btn btn-primary" id="start-btn">Start Quiz</a>
-                        </div>
-                        <!-- enter initials -->
-                        <div id="initials-form" style="display: none;">
-                            <form action="" id="get-initials-form">
-                                <label for="inputInitials" class="form-label">Enter initials: </label>
-                                <input type="text" class="form-inline" id="inputInitials">
-                                <button class="btn btn-primary btn-sm" style="vertical-align: top;">Submit</button>
-                            </form>
-                        </div>
-                        <!-- high scores -->
-                        <div id="high-scores" style="display: none;">
-                            <ol class="list-group list-group-numbered">
-                                <li class="list-group-item-primary">MR 100</li>
-                                <li class="list-group-item-primary">MR 100</li>
-                            </ol>
-                            <a href="" class="btn btn-primary btn-sm" id="back-btn" style="margin: .5rem">Go Back</a>
-                            <a href="" class="btn btn-primary btn-sm" id="clear-btn" style="margin: .5rem">Clear High
-                                Scores</a>
-                        </div>
-                        <!-- Display Correct!/Wrong! -->
-                        <div id="check-answer-section" style="display: none;">
-                            <hr>
-                            <!-- <h4 class="fw-light fst-italic" id="correct" style="display: none;">Correct!</h4>
-                        <h4 class="fw-light fst-italic" id="wrong" style="display: none;">Wrong!</h4> -->
-                        </div>
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5 class="card-title" id="question">Coding Quiz Challenge</h4>
                     </div>
+                    <div class="card-body" id="answer-section">
+                        <p id="start-text">Try to answer the following code-related questions within the time limit.
+                            <br>
+                            Keep in mind that incorrect answers will penalize your score/time
+                            <br>
+                            by 10 seconds!
+                        </p>
+                        <a href="" class="btn btn-primary" id="start-btn">Start Quiz</a>
+                    </div>
+                    <!-- enter initials -->
+                    <div id="initials-form" style="display: none;">
+                        <form action="" id="get-initials-form">
+                            <label for="inputInitials" class="form-label">Enter initials: </label>
+                            <input type="text" class="form-inline" id="inputInitials">
+                            <button class="btn btn-primary btn-sm" style="vertical-align: top;">Submit</button>
+                        </form>
+                    </div>
+                    <!-- high scores -->
+                    <div id="high-scores" style="display: none;">
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item-primary">MR 100</li>
+                            <li class="list-group-item-primary">MR 100</li>
+                        </ol>
+                        <a href="" class="btn btn-primary btn-sm" id="back-btn" style="margin: .5rem">Go Back</a>
+                        <a href="" class="btn btn-primary btn-sm" id="clear-btn" style="margin: .5rem">Clear High
+                            Scores</a>
+                    </div>
+                    <!-- Display Correct!/Wrong! -->
+                    <div id="check-answer-section" style="display: none;">
+                        <hr>
+                        <!-- <h4 class="fw-light fst-italic" id="correct" style="display: none;">Correct!</h4>
+                        <h4 class="fw-light fst-italic" id="wrong" style="display: none;">Wrong!</h4> -->
+                    </div>
+                </div>
             </div>
         </div>
 

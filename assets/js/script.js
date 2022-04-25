@@ -25,6 +25,16 @@ const question = document.querySelector('#question')
 const answerSection = document.querySelector('#answer-section')
 let globalIndex = 0
 
+let time = 300
+
+const countdownTimer = () => {
+    const counter = document.querySelector('#counter')
+    counter.innerHTML = time
+    time--
+}
+
+setInterval(countdownTimer, 1000)
+
 const startBtnHandler = (event) => {
     event.preventDefault()
     console.log('start quiz button clicked')
