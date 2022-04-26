@@ -4,7 +4,7 @@
 
 ### To use this Application
 
-- [Go to live link](https://whispering-depths-44425.herokuapp.com/)
+- [Go to live link](https://mrahma04.github.io/code-quiz-v2.0/)
 - Sign up using email address, username and password
 - Log in using your username and password
 
