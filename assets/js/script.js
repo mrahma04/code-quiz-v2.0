@@ -26,6 +26,7 @@ const answerSection = document.querySelector('#answer-section')
 let globalIndex = 0
 
 let time = 300
+// interval variable that's called to start/stop
 let timer
 
 const countdownTimer = () => {
@@ -167,7 +168,14 @@ const endQuiz = () => {
 // }
 
 const saveScore = (initials, score) => {
-    console.log({ initials, score })
+
+    // serialize the initials and score for localStorage
+    const scoreObj = { initials, score }
+    const scoreObjSerialized = JSON.stringify(scoreObj)
+    localStorage.setItem("scores", scoreObjSerialized)
+
+    console.log(localStorage)
+
     document.querySelector('#high-scores').style.display = 'block'
     const scoreListEl = document.createElement('li')
     scoreListEl.setAttribute('class', 'list-group-item-primary')
