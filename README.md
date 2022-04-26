@@ -32,9 +32,10 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+### Screenshots
 
-![](2022-04-26-08-05-19.png)
-![](2022-04-26-08-05-31.png)
-![](2022-04-26-08-05-42.png)
-![](2022-04-26-08-06-13.png)
-![](2022-04-26-08-06-24.png)
+![](./assets/img/2022-04-26-08-05-19.png)
+![](./assets/img/2022-04-26-08-05-31.png)
+![](./assets/img/2022-04-26-08-05-42.png)
+![](./assets/img/2022-04-26-08-06-13.png)
+![](./assets/img/2022-04-26-08-06-24.png)
