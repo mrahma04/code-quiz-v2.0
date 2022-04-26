@@ -158,7 +158,8 @@ const endQuiz = () => {
         finalScore.remove()
         document.querySelector('#initials-form').style.display = 'none'
         // highScores()
-        saveScore(initials, getScore)
+        displayScore(initials, getScore)
+        saveToStorage(initials, getScore)
     })
 }
 
@@ -167,14 +168,14 @@ const endQuiz = () => {
 //     document.querySelector('#high-scores').style.display = 'block'
 // }
 
-const saveScore = (initials, score) => {
+const displayScore = (initials, score) => {
 
     // serialize the initials and score for localStorage
-    const scoreObj = { initials, score }
-    const scoreObjSerialized = JSON.stringify(scoreObj)
-    localStorage.setItem("scores", scoreObjSerialized)
+    // const scoreObj = { initials, score }
+    // const scoreObjSerialized = JSON.stringify(scoreObj)
 
-    console.log(localStorage)
+    // localStorage.setItem(`${initials}`, `${score}`)
+    // console.log(localStorage)
 
     document.querySelector('#high-scores').style.display = 'block'
     const scoreListEl = document.createElement('li')
@@ -182,6 +183,23 @@ const saveScore = (initials, score) => {
 
     scoreListEl.innerText = `${initials} - ${score}`
     document.querySelector('#high-scores-ol').appendChild(scoreListEl)
+}
+
+const saveToStorage = (initials, score) => {
+    const scoreObj = { initials, score }
+    // check to see if scores already exist in localStorage
+    // if not, then create an array to store scores in localStorage
+    if (localStorage.getItem('code-quiz') === null) {
+        localStorage.setItem('code-quiz', '[]')
+    }
+
+    // get existing data and push new data into existing data
+    // JSON.parse will return a JavaScript object array instead of strings
+    const oldData = JSON.parse(localStorage.getItem('code-quiz'))
+    oldData.push(scoreObj)
+
+    // resave back to localStorage
+    localStorage.setItem('code-quiz', JSON.stringify(oldData))
 }
 
 const init = () => {
