@@ -25,7 +25,7 @@ const question = document.querySelector('#question')
 const answerSection = document.querySelector('#answer-section')
 let globalIndex = 0
 
-let time = 5
+let time = 300
 let timer
 
 const countdownTimer = () => {
@@ -108,7 +108,7 @@ const checkAnswer = (event) => {
     if (event.target.dataset.iscorrect === 'false') {
         answerSection.style.display = 'block'
         answer.innerText = 'Wrong!'
-        time -= 50
+        time -= 15
         answerSection.appendChild(answer)
         // wrongAnswer.style.display = 'block'
     }
