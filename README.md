@@ -1,4 +1,4 @@
-# Code Quiz v2.0 :technologist::writing_hand:
+# Code Quiz v2.0 :test_tube::part_alternation_mark:
 
 #### This is an online quiz app that runs completely in the browser. Final score equals total time remaining. For every wrong answer, 15 seconds/points will be subtracted from final score. Users are able to store their high scores in localStorage as well as clear the cache. 
 
