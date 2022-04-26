@@ -33,7 +33,7 @@ const countdownTimer = () => {
     if (time > 0) {
         counter.innerHTML = time
         time--
-    } else if (time === 0){
+    } else if (time === 0) {
         document.querySelector('#choices').remove()
         endQuiz()
     }
@@ -62,7 +62,7 @@ const startBtnHandler = (event) => {
 }
 
 const renderQuestions = () => {
- 
+
     const currentQuestion = questions[globalIndex]
     question.textContent = currentQuestion.question
 
@@ -156,18 +156,24 @@ const endQuiz = () => {
         const initials = event.target[0].value.trim()
         finalScore.remove()
         document.querySelector('#initials-form').style.display = 'none'
-        highScores()
+        // highScores()
+        saveScore(initials, getScore)
     })
 }
 
-const highScores = () => {
-    question.textContent = 'High scores'
+// const highScores = () => {
+//     question.textContent = 'High scores'
+//     document.querySelector('#high-scores').style.display = 'block'
+// }
 
+const saveScore = (initials, score) => {
+    console.log({ initials, score })
     document.querySelector('#high-scores').style.display = 'block'
-}
+    const scoreListEl = document.createElement('li')
+    scoreListEl.setAttribute('class', 'list-group-item-primary')
 
-const gameState = () => {
-
+    scoreListEl.innerText = `${initials} - ${score}`
+    document.querySelector('#high-scores-ol').appendChild(scoreListEl)
 }
 
 const init = () => {
@@ -175,4 +181,3 @@ const init = () => {
 }
 
 init()
-gameState()
