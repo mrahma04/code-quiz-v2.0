@@ -31,3 +31,5 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+
+![](2022-04-25-20-55-53.png)

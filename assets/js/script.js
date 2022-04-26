@@ -25,13 +25,18 @@ const question = document.querySelector('#question')
 const answerSection = document.querySelector('#answer-section')
 let globalIndex = 0
 
-let time = 300
+let time = 5
 let timer
 
 const countdownTimer = () => {
     const counter = document.querySelector('#counter')
-    counter.innerHTML = time
-    time--
+    if (time > 0) {
+        counter.innerHTML = time
+        time--
+    } else if (time === 0){
+        document.querySelector('#choices').remove()
+        endQuiz()
+    }
 }
 
 // function to start the timer
@@ -170,3 +175,4 @@ const init = () => {
 }
 
 init()
+gameState()
