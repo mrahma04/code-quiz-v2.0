@@ -5,6 +5,7 @@
 ### To use this Application
 
 - [Go to live link](https://mrahma04.github.io/code-quiz-v2.0/)
+- [See Walkthrough Video](https://drive.google.com/file/d/1kPDPqeFTlla8fftI-JZa2604nuo5npUw/view)
 - Click 'Start Quiz' to begin
 - Enter initials to save score in localStorage
 - Click 'View high scores' to see previous high scores in sorted, ASCENDING order
