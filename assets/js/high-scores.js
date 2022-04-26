@@ -16,7 +16,16 @@ const sortScores = (arr) => {
 
 const displayScores = (arr) => {
 
-    for (let i = 0; i < arr.length; i++) {
+    let firstTen
+    if (arr.length > 25) {
+        firstTen = 25
+    } else {
+        firstTen = arr.length
+    }
+
+    const slicedArr = arr.slice(0, firstTen)
+
+    for (let i = 0; i < slicedArr.length; i++) {
         const scoreEl = document.createElement('li')
         scoreEl.setAttribute('class', 'list-group-item-info')
 
