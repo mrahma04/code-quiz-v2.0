@@ -1,12 +1,13 @@
 # Code Quiz v2.0 :technologist::writing_hand:
 
-#### This is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. It follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+#### This is an online quiz app that runs completely in the browser. Final score equals total time remaining. For every wrong answer, 15 seconds/points will be subtracted from final score. Users are able to store their high scores in localStorage as well as clear the cache. 
 
 ### To use this Application
 
 - [Go to live link](https://mrahma04.github.io/code-quiz-v2.0/)
-- Sign up using email address, username and password
-- Log in using your username and password
+- Click 'Start Quiz' to begin
+- Enter initials to save score in localStorage
+- Click 'View high scores' to see previous high scores in sorted, ASCENDING order
 
 ### User Story
 
@@ -31,3 +32,9 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+
+![](2022-04-26-08-05-19.png)
+![](2022-04-26-08-05-31.png)
+![](2022-04-26-08-05-42.png)
+![](2022-04-26-08-06-13.png)
+![](2022-04-26-08-06-24.png)
