@@ -25,7 +25,7 @@ const question = document.querySelector('#question')
 const answerSection = document.querySelector('#answer-section')
 let globalIndex = 0
 
-let time = 300
+let time = 75
 // interval variable that's called to start/stop
 let timer
 
@@ -133,8 +133,8 @@ const clearAnswer = (event) => {
     // console.log(typeof previousAnswer)
     // console.log(previousAnswer.length)
     if (previousAnswer.length >= 2) {
-        console.log('on the second question')
-        console.log(previousAnswer[0])
+        // console.log('on the second question')
+        // console.log(previousAnswer[0])
         previousAnswer[0].remove()
     }
 }
@@ -142,7 +142,7 @@ const clearAnswer = (event) => {
 const endQuiz = () => {
     stopTimer()
     const getScore = document.querySelector('#counter').innerText
-    console.log(getScore)
+    // console.log(getScore)
     question.textContent = 'All Done!'
     const finalScore = document.createElement('p')
     finalScore.setAttribute('class', 'card-text')
@@ -205,5 +205,13 @@ const saveToStorage = (initials, score) => {
 const init = () => {
     document.querySelector('#start-btn').addEventListener('click', startBtnHandler)
 }
+
+const clearBtnHandler = (event) => {
+    event.preventDefault()
+    console.log('clear button clicked')
+    localStorage.removeItem('code-quiz')
+}
+
+document.querySelector('#clear-btn').addEventListener('click', clearBtnHandler)
 
 init()

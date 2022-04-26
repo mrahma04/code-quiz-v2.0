@@ -1,8 +1,14 @@
 const getScores = () => {
-    const oldData = JSON.parse(localStorage.getItem('code-quiz'))
-    console.log(oldData)
-    // displayScores(oldData)
-    sortScores(oldData)
+    if (localStorage.getItem('code-quiz') === null) {
+        const msg = document.createElement('p')
+        msg.innerText = `No high scores saved`
+        document.querySelector('#answer-section').appendChild(msg)
+    } else {
+        const oldData = JSON.parse(localStorage.getItem('code-quiz'))
+        console.log(oldData)
+        // displayScores(oldData)
+        sortScores(oldData)
+    }
 }
 
 const sortScores = (arr) => {
