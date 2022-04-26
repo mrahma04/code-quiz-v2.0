@@ -26,6 +26,7 @@ const answerSection = document.querySelector('#answer-section')
 let globalIndex = 0
 
 let time = 300
+let timer
 
 const countdownTimer = () => {
     const counter = document.querySelector('#counter')
@@ -33,11 +34,19 @@ const countdownTimer = () => {
     time--
 }
 
+// function to start the timer
+const startTimer = () => {
+    timer = setInterval(countdownTimer, 1000)
+}
 
+// function to stop the timer
+const stopTimer = () => {
+    clearInterval(timer)
+}
 
 const startBtnHandler = (event) => {
     event.preventDefault()
-    setInterval(countdownTimer, 1000)
+    startTimer()
     console.log('start quiz button clicked')
 
     // remove start-text and start button after clicking start quiz button
@@ -125,10 +134,13 @@ const clearAnswer = (event) => {
 }
 
 const endQuiz = () => {
+    stopTimer()
+    const getScore = document.querySelector('#counter').innerText
+    console.log(getScore)
     question.textContent = 'All Done!'
     const finalScore = document.createElement('p')
     finalScore.setAttribute('class', 'card-text')
-    finalScore.textContent = `Your final score is 100.`
+    finalScore.textContent = `Your final score is ${getScore}.`
 
     document.querySelector('#initials-form').style.display = 'block'
 
@@ -149,4 +161,12 @@ const highScores = () => {
     document.querySelector('#high-scores').style.display = 'block'
 }
 
-document.querySelector('#start-btn').addEventListener('click', startBtnHandler)
+const gameState = () => {
+
+}
+
+const init = () => {
+    document.querySelector('#start-btn').addEventListener('click', startBtnHandler)
+}
+
+init()
